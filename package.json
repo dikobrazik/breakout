@@ -1,0 +1,38 @@
+{
+  "name": "breakout",
+  "version": "1.0.0",
+  "description": "simple game - breakout",
+  "main": "src/index.ts",
+  "scripts": {
+    "test": "jest",
+    "build": "BUILD=1 webpack",
+    "dev": "webpack serve --open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dikobrazik/breakout.git"
+  },
+  "keywords": [],
+  "author": "ilnarik",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dikobrazik/breakout/issues"
+  },
+  "homepage": "https://github.com/dikobrazik/breakout#readme",
+  "devDependencies": {
+    "@types/three": "^0.138.0",
+    "css-loader": "latest",
+    "html-webpack-plugin": "latest",
+    "prettier": "2.5.1",
+    "progress-bar-webpack-plugin": "latest",
+    "style-loader": "latest",
+    "ts-loader": "latest",
+    "typescript": "latest",
+    "webpack": "latest",
+    "webpack-cli": "latest",
+    "webpack-dev-server": "latest"
+  },
+  "dependencies": {
+    "three": "latest"
+  }
+}
