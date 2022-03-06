@@ -24,7 +24,7 @@ export function createBall() {
   const material = new THREE.MeshMatcapMaterial();
   const ball = new THREE.Mesh(geometry, material);
   ball.name = "ball";
-  ball.position.y = -(SCALED_WINDOW_HEIGHT / 2) + PADDLE_HEIGHT;
+  ball.position.y = -(SCALED_WINDOW_HEIGHT / 2) + PADDLE_HEIGHT * 1.5;
   animateBall = createBallVectorAnimation(ball);
   return ball;
 }
@@ -32,13 +32,10 @@ export function createBall() {
 function createBallVectorAnimation(ball: THREE.Mesh) {
   return function (scene: THREE.Scene) {
     ballBouncingFromBounds(ball);
-
     for (const vector of ["x", "y"] as const) {
       const diff = new THREE.Vector3();
       diff[vector] += BALL_MOVE_DIFFERENCE[vector];
-
       const ballBox = new THREE.Box3().setFromObject(ball).translate(diff);
-
       const shouldChangeDirection = [];
       for (const child of scene.children.filter(
         (child) => !["ball"].includes(child.name)
@@ -51,7 +48,6 @@ function createBallVectorAnimation(ball: THREE.Mesh) {
           }
         }
       }
-
       if (shouldChangeDirection.length) {
         changeVectorDirection(vector);
       }
@@ -69,6 +65,9 @@ function ballBouncingFromBounds(
   }
   if (Math.abs(ball.position.y) > getWorldSize("y") - BALL_RADIUS) {
     changeVectorDirection("y");
+    if (BALL_MOVE_DIFFERENCE["y"] > 0) {
+      window.location.reload();
+    }
   }
 }
 

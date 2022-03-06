@@ -2,8 +2,8 @@ export const FOV = 75;
 
 export const BALL_RADIUS = 1;
 
-export const DX = 0.5;
-export const DY = 0.5;
+export const DX = 1;
+export const DY = 1;
 
 export const PADDLE_HEIGHT = 2;
 
