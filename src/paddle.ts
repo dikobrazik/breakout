@@ -8,9 +8,10 @@ import {
 } from "./constants";
 
 export function createPaddle(renderer: THREE.Renderer) {
-  renderer.domElement.addEventListener("mousemove", onMouseMove, false);
+  renderer.domElement.addEventListener("mousemove", onMove, false);
+  renderer.domElement.addEventListener("touchmove", onMove, false);
 
-  function onMouseMove(event: MouseEvent) {
+  function onMove(event: MouseEvent) {
     const positionX =
       (event.clientX / WINDOW_WIDTH) * SCALED_WINDOW_WIDTH -
       SCALED_WINDOW_WIDTH / 2;
