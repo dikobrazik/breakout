@@ -1,19 +1,26 @@
 import * as THREE from "three";
-import { BRICKS_PADDING, FOV } from "./constants";
+import {
+  BRICKS_PADDING,
+  SCALED_WINDOW_WIDTH,
+  SCALED_WINDOW_HEIGHT,
+} from "./constants";
 
 export function createBricks(scheme: number[][]): any {
   let bricksLines: any = [];
   for (const bricksLineScheme of scheme) {
     let bricksLine: any = [];
     const brickOnLineCount = bricksLineScheme.length;
-    const brickWidth = FOV / brickOnLineCount;
+    const brickHeight = 3;
+    const brickWidth =
+      (SCALED_WINDOW_WIDTH - BRICKS_PADDING * (brickOnLineCount + 1)) /
+      brickOnLineCount;
     for (
       let brickSchemeIndex = 0,
         brickScheme = bricksLineScheme[brickSchemeIndex];
       brickSchemeIndex < brickOnLineCount;
       brickSchemeIndex++
     ) {
-      const geometry = new THREE.BoxGeometry(brickWidth, 3, 1);
+      const geometry = new THREE.BoxGeometry(brickWidth, brickHeight, 1);
       //   const material = new THREE.MeshBasicMaterial();
       //   const brick = new THREE.Mesh(geometry, material);
 
@@ -23,14 +30,12 @@ export function createBricks(scheme: number[][]): any {
         new THREE.LineBasicMaterial({ color: 0x000 })
       );
 
-      //   brick.position.y = FOV;
-      line.position.y = FOV;
-      //   brick.position.x =
-      //     brickWidth * (brickSchemeIndex + 1) -
-      //     FOV +
-      //     BRICKS_PADDING * brickSchemeIndex;
+      line.position.y =
+        SCALED_WINDOW_HEIGHT / 2 - brickHeight / 2 - BRICKS_PADDING;
       line.position.x =
-        brickWidth * brickSchemeIndex - FOV + BRICKS_PADDING * brickSchemeIndex;
+        brickWidth * brickSchemeIndex -
+        brickWidth +
+        BRICKS_PADDING * brickSchemeIndex;
       bricksLine = bricksLine.concat(line);
     }
     bricksLines = bricksLines.concat(bricksLine);

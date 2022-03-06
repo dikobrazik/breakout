@@ -32,5 +32,7 @@ export function createPaddle(renderer: THREE.Renderer) {
 
   paddle.position.y = -FOV;
   line.position.y = -FOV;
+  paddle.name = "paddle";
+  line.name = "paddle";
   return [paddle, line];
 }

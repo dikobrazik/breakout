@@ -50,9 +50,10 @@ scene.add(...createBricks([[1, EMPTY_BRICK, 1]]));
 const ball = createBall();
 scene.add(ball);
 
+console.log(scene.children);
 function animate() {
   requestAnimationFrame(animate);
-  animateBall(ball);
+  animateBall(scene);
   renderer.render(scene, camera);
 }
 animate();
