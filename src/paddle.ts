@@ -1,10 +1,10 @@
 // three.js
 import * as THREE from "three";
 import {
-  FOV,
   PADDLE_HEIGHT,
   WINDOW_WIDTH,
   SCALED_WINDOW_WIDTH,
+  SCALED_WINDOW_HEIGHT,
 } from "./constants";
 
 export function createPaddle(renderer: THREE.Renderer) {
@@ -30,8 +30,8 @@ export function createPaddle(renderer: THREE.Renderer) {
     new THREE.LineBasicMaterial({ color: 0x000 })
   );
 
-  paddle.position.y = -FOV;
-  line.position.y = -FOV;
+  paddle.position.y = -(SCALED_WINDOW_HEIGHT - PADDLE_HEIGHT) / 2;
+  line.position.y = paddle.position.y;
   paddle.name = "paddle";
   line.name = "paddle";
   return [paddle, line];

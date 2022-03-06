@@ -45,12 +45,17 @@ initializeScaledWindowSizes(
 
 scene.add(...createPaddle(renderer));
 
-scene.add(...createBricks([[1, EMPTY_BRICK, 1]]));
+scene.add(
+  ...createBricks([
+    [1, 0, 1],
+    [0, 1, 0],
+    [1, 1, 0],
+  ])
+);
 
 const ball = createBall();
 scene.add(ball);
 
-console.log(scene.children);
 function animate() {
   requestAnimationFrame(animate);
   animateBall(scene);
