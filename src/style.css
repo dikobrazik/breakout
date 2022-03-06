@@ -8,4 +8,5 @@ body {
 
 canvas {
   touch-action: none;
+  cursor: none;
 }
