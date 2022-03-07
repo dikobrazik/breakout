@@ -8,7 +8,7 @@ const {BUILD} = process.env;
 module.exports = {
   mode: BUILD ? 'production' : 'development',
 
-  entry: './src/index.ts',
+  entry: './src/index.tsx',
   output: {
     filename: 'bundle.js',
     path: resolve(__dirname, 'dist'),

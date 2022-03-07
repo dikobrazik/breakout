@@ -3,6 +3,8 @@
     "target": "es6",
     "module": "commonjs",
     "moduleResolution": "node",
+    "jsx": "react-jsx",
+    "jsxImportSource": "preact",
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "preserveConstEnums": true,

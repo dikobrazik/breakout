@@ -33,6 +33,7 @@
     "webpack-dev-server": "latest"
   },
   "dependencies": {
+    "preact": "^10.6.6",
     "three": "latest"
   }
 }
